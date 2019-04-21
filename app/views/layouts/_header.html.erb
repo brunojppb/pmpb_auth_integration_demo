@@ -1,0 +1,14 @@
+<% if current_user %>
+  <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px">
+    Matrícula: 
+    <strong><%= current_user.registration %></strong>
+    <br/>
+    <p>Permissões atuais</p>
+    <ul>
+      <% current_user.roles.each do |role| %>
+        <li><%= role.name %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'logout', logout_path %> 
+  </div>
+<% end %>
